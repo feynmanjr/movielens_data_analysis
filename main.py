@@ -110,6 +110,7 @@ movie_df = pd.merge(df_movies,f, on='movie_id', how='inner')
 weight_of_popularity = 0
 
 def movies_relation(i, j):
+    ## this function calculates the similarity between two movies with indices of i and j. 
     sum_i = sum(movie_df['genre_id'][i])
     sum_j = sum(movie_df['genre_id'][j])
     if (sum_i == 0 or sum_j == 0):
@@ -122,6 +123,7 @@ def movies_relation(i, j):
 
 
 def similar_to_this_movie(i, n):
+    ## this function creates an indexed series of n elements which are similar to the movie with index = i. 
     s = pd.Series()
     dic = {}
     for j in range(len(movie_df)):
